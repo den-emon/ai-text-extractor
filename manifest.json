@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "AI Text Extractor",
+  "version": "1.0",
+  "description": "ページのタイトルと本文を抽出し、AI向けにクリップボードにコピーします。",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "action": {
+    "default_title": "タイトルと本文をコピー",
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
