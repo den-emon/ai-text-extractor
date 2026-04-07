@@ -1,34 +1,34 @@
 # AI Text Extractor
 
-Chrome拡張機能。Webページのタイトルと本文を抽出し、AI向けに整形してクリップボードにコピーします。
+A Chrome extension that extracts the title and main body text from a web page, formats it for AI use, and copies it to the clipboard.
 
-## インストール
+## Installation
 
-1. `chrome://extensions` を開く
-2. 「デベロッパーモード」を有効にする
-3. 「パッケージ化されていない拡張機能を読み込む」をクリック
-4. このフォルダを選択
+1. Open `chrome://extensions`.
+2. Enable Developer mode.
+3. Click Load unpacked.
+4. Select this folder.
 
-## 使い方
+## Usage
 
-任意のWebページで拡張機能アイコンをクリックすると、タイトルと本文が `【タイトル】` `【本文】` 形式でクリップボードにコピーされます。
+Click the extension icon on any supported web page to copy the page title and extracted body text to the clipboard in a labeled, AI-friendly format.
 
-## ファイル構成
+## File Structure
 
-- `manifest.json` — 拡張機能の設定（Manifest V3）
-- `background.js` — サービスワーカー。クリック検知とスクリプト注入のみ
-- `content.js` — 本文抽出ロジック。DOM解析・ノイズ除去・Markdownフォーマット・クリップボードコピー
-- `icon.png` — 拡張機能アイコン
-- `test/extension.test.js` — Node.js標準テストランナーによる最小テスト
+- `manifest.json` - Extension configuration for Manifest V3.
+- `background.js` - Service worker that handles extension clicks and injects the content script.
+- `content.js` - Body extraction logic, including DOM parsing, noise removal, Markdown formatting, and clipboard copy handling.
+- `icon.png` - Extension icon.
+- `test/extension.test.js` - Minimal tests using the built-in Node.js test runner.
 
-## テスト
+## Testing
 
 ```sh
 npm test
 ```
 
-## セキュリティ
+## Security
 
-- `activeTab` 権限のみ使用（ユーザーがクリックしたタブにのみアクセス）
-- ページのDOMは本文抽出のために読み取り、通知UIとコピー用の一時テキストエリアのみ追加します
-- 外部通信は一切行いません
+- Uses only the `activeTab` permission, so the extension accesses only the tab the user clicked.
+- Reads the page DOM only to extract body text, and adds only a notification UI plus a temporary text area for copying.
+- Does not make any external network requests.
