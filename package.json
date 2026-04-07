@@ -1,0 +1,9 @@
+{
+  "name": "ai-text-extractor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test": "node --test"
+  }
+}
